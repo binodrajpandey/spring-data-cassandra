@@ -34,9 +34,9 @@ bookRepository.save(javaBook);
     }
     @GetMapping("/books")
     public ResponseEntity<?> getBooks(){
-        Iterable<Book> books = bookRepository.findAll();
-//                bookRepository.findByTitleAndPublisher(
-//  "Head First Java", "O'Reilly Media");
+        Iterable<Book> books = 
+                bookRepository.findByTitleAndPublisher(
+  "Head First Java", "O'Reilly Media");
 //assertEquals(javaBook.getId(), books.iterator().next().getId());
 return ResponseEntity.ok(books);
     }
