@@ -1,0 +1,6 @@
+cassandra-config-properties:
+    keyspace-name: drsyncdb_binod
+    contact-point: 10.0.2.11
+    port: 9042
+    username: cassandra
+    password: cassandra

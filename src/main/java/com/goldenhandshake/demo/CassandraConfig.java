@@ -5,6 +5,7 @@
  */
 package com.goldenhandshake.demo;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.cassandra.config.CassandraClusterFactoryBean;
@@ -20,19 +21,21 @@ import org.springframework.data.cassandra.repository.config.EnableCassandraRepos
 @Configuration
 @EnableCassandraRepositories
 public class CassandraConfig extends AbstractCassandraConfiguration{
+   @Autowired
+   private CassandraConfigProperties cassandraConfigProperties;
 
     @Override
     protected String getKeyspaceName() {
-        return "drsyncdb_binod";
+        return cassandraConfigProperties.getKeyspaceName();
     }
     @Bean
     public CassandraClusterFactoryBean cluster() {
         CassandraClusterFactoryBean cluster = 
           new CassandraClusterFactoryBean();
-        cluster.setContactPoints("10.0.2.11");
-        cluster.setPort(9042);
-        cluster.setUsername("cassandra");
-        cluster.setPassword("cassandra");
+        cluster.setContactPoints(cassandraConfigProperties.getContactPoint());
+        cluster.setPort(cassandraConfigProperties.getPort());
+        cluster.setUsername(cassandraConfigProperties.getUsername());
+        cluster.setPassword(cassandraConfigProperties.getPassword());
         return cluster;
     }
     @Bean
