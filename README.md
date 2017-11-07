@@ -1,6 +1,11 @@
 Before you run the project you have to do the following steps.
 1. Install cassandra on any machine
 2. Create keyspaces
+create keyspace binod_keyspace with replication ={'class':'SimpleStrategy','replication_factor':1} ;
+test using command:
+describe keyspaces;
+and use it with the command;
+use binod_keyspace;
 3. create table using following commands
 CREATE TABLE IF NOT EXISTS  book (
     isbn UUID,
@@ -10,6 +15,8 @@ CREATE TABLE IF NOT EXISTS  book (
     primary key((publisher,title),isbn)
 );
 where publisher and title are partition key and isbn is cluster key. We have used composite partitionkey to use multiple partition.
+now test using command:
+describe tables;
 you can insert test data to verify:
 INSERT INTO book (isbn, publisher ,title, tags) VALUES ( now(), 'binod','long journey',['tag1','tag2']) using ttl 100;
 
