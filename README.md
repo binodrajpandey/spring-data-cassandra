@@ -15,15 +15,14 @@ you should see the keyspace name binod_keyspace.
 use binod_keyspace;
 
 5. create table using following command:
-
-CREATE TABLE IF NOT EXISTS  book (
-    isbn UUID,
-    title varchar,
-    publisher varchar,
-    tags list<text>,
-    primary key((publisher,title),isbn)
-);
-
+```
+CREATE TABLE IF NOT EXISTS book (
+isbn UUID,
+title varchar,
+publisher varchar,
+tags list<text>, 
+primary key((publisher,title),isbn) );
+```
 where publisher and title are partition key and isbn is cluster key. We have used composite partitionkey to use multiple partition.
 6. Now test using command:
 describe tables;
