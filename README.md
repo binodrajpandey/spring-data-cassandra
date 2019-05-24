@@ -23,12 +23,14 @@ publisher varchar,
 tags list<text>, 
 primary key((publisher,title),isbn) );
 ```
-where publisher and title are partition key and isbn is cluster key. We have used composite partitionkey to use multiple partition.
-6. Now test using command:
-describe tables;
-7.you can insert test data to verify:
-INSERT INTO book (isbn, publisher ,title, tags) VALUES ( now(), 'binod','long journey',['tag1','tag2']) using ttl 100;
+where publisher and title are partition key and isbn is cluster key. We have used composite partitionkey to use multiple partitions.
 
-8. Open cassandraConfig.java file and edit name of keyspaces, contanct point, cassandra credentials.
+6. Now test using command:
+`describe tables;`
+
+7.you can insert test data to verify: </br>
+`INSERT INTO book (isbn, publisher ,title, tags) VALUES ( now(), 'binod','long journey',['tag1','tag2']) using ttl 100;`
+
+8. Open cassandraConfig.java file and edit name of keyspaces, contanct point, cassandra credentials.</br>
 9. build the project and then run it.
 10. run the test for CRUD operation.
