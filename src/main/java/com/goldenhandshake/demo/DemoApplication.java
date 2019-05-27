@@ -2,10 +2,9 @@ package com.goldenhandshake.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
 @SpringBootApplication
-@EnableConfigurationProperties(CassandraConfigProperties.class)
+// @EnableConfigurationProperties(CassandraConfigProperties.class)
 public class DemoApplication {
 
 	public static void main(String[] args) {
