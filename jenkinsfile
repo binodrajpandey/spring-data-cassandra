@@ -4,10 +4,12 @@ pipeline{
 	stages{
 	    
 	    stage('Compile'){
+	    steps{
 	    
 	    def mvnHome= tool name: 'maven_3_6_1', type: 'maven'
 	                      sh "{mvnHome}/bin/mvn clean compile"    
 	                      }
+			      }
 	      
 	    stage('Tests'){
 	    
