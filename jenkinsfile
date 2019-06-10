@@ -3,15 +3,16 @@ pipeline{
 	agent any
 	stages{
 	    
-	    stage('Compile'){
-	    steps{
+	   stage('Compile'){
 	    
-	 withDifferentWay(){
-	 mvnHome = tool name: 'maven_3_6_1', type: 'maven'
-	                      sh "{mvnHome}/bin/mvn clean compile"    
+	   	 steps{
+	     withMaven(maven: 'maven_3_6_1') {
+	                      sh 'mvn clean compile'    
 	                      }
-			      }
-			      }
+	        
+	      }
+	    }
+	    
 	      
 	    stage('Tests'){
 	    
