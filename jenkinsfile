@@ -1,22 +1,23 @@
 pipeline{
 
 	agent any
-	sgates{
+	stages{
 	    
-	    stage('Compile'){
+	   stage('Compile'){
 	    
 	   	 steps{
-	     withMaven(maven: 'maven_3_5_0') {
+	     withMaven(maven: 'maven_3_6_1') {
 	                      sh 'mvn clean compile'    
 	                      }
 	        
 	      }
 	    }
 	    
+	      
 	    stage('Tests'){
 	    
 	   	 steps{
-	     withMaven(maven: 'maven_3_5_0') {
+	     withMaven(maven: 'maven_3_6_1') {
 	                      sh 'mvn test'    
 	                      }
 	        
@@ -24,7 +25,7 @@ pipeline{
 	    }
 	    stage('Deploy'){
 	    steps{
-	        withMaven(maven: 'maven_3_5_0'){
+	        withMaven(maven: 'maven_3_6_1'){
  			sh 'mvn deploy'
 	            
  
