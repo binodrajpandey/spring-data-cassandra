@@ -10,7 +10,9 @@
         </goals>
         <properties>
             <run.jvmArguments>-noverify -XX:TieredStopAtLevel=1 </run.jvmArguments>
+             <run.jvmArguments>-noverify -XX:TieredStopAtLevel=1 </run.jvmArguments>
             <run.mainClass>com.goldenhandshake.demo.DemoApplication</run.mainClass>
+             <run.jvmArguments>-noverify -XX:TieredStopAtLevel=1 </run.jvmArguments>
             <Env.SPRING_OUTPUT_ANSI_ENABLED>always</Env.SPRING_OUTPUT_ANSI_ENABLED>
         </properties>
     </action>
